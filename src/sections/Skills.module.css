@@ -1,0 +1,158 @@
+.skills {
+  padding: 140px 0;
+  position: relative;
+}
+
+.skills::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--rim), transparent);
+}
+
+.header { margin-bottom: 64px; }
+
+.heading {
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 300;
+  color: var(--text-primary);
+  margin-top: 8px;
+}
+
+.groups {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-bottom: 72px;
+}
+
+.group {
+  background: var(--deep);
+  border: 1px solid var(--rim);
+  border-radius: 4px;
+  padding: 36px;
+  transition: border-color 0.3s;
+}
+
+.group:hover {
+  border-color: rgba(109, 40, 217, 0.4);
+}
+
+.groupHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.icon {
+  font-size: 20px;
+  color: var(--amethyst);
+}
+
+.groupLabel {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--text-primary);
+}
+
+.bars {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.barItem { display: flex; flex-direction: column; gap: 8px; }
+
+.barMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.skillName {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-secondary);
+}
+
+.skillPct {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-family: var(--font-display);
+}
+
+.barTrack {
+  height: 3px;
+  background: var(--rim);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.barFill {
+  height: 100%;
+  width: var(--target, 0%);
+  background: linear-gradient(90deg, var(--grape), var(--lavender));
+  border-radius: 2px;
+  transform-origin: left;
+  animation: fillBar 1.2s var(--ease-luxe) forwards;
+  animation-play-state: paused;
+}
+
+.skills .reveal.visible .barFill {
+  animation-play-state: running;
+}
+
+@keyframes fillBar {
+  from { width: 0; }
+  to { width: var(--target, 0%); }
+}
+
+/* Tools */
+.toolsSection {
+  padding-top: 48px;
+  border-top: 1px solid var(--rim);
+}
+
+.toolsLabel {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+.tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tool {
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  border: 1px solid var(--rim);
+  padding: 8px 18px;
+  border-radius: 2px;
+  background: var(--deep);
+  transition: border-color 0.3s, color 0.3s, background 0.3s, transform 0.3s var(--ease-spring);
+  cursor: default;
+}
+
+.tool:hover {
+  border-color: rgba(109, 40, 217, 0.45);
+  color: var(--lavender);
+  background: rgba(76, 29, 149, 0.12);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 900px) {
+  .groups {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
